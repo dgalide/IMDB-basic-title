@@ -16,12 +16,14 @@ import { UpdateTitleComponent } from './update-title/update-title.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { IsAdultPipe } from './is-adult.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchResultComponent,
     UpdateTitleComponent,
+    IsAdultPipe,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
   </h3>
 </div>
 
-<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
 
   <mat-form-field>
     <input
@@ -16,12 +16,15 @@
       placeholder="Title"/>
   </mat-form-field>
 
-  <button
-    mat-button
-    type="submit"
-    (click)="search(searchTerms.value)">
-    Search
-  </button>
+  <div class="search-button">
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      (click)="search(searchTerms.value)">
+      Search
+    </button>
+  </div>
 </div>
 
 <app-search-result

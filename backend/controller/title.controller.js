@@ -4,7 +4,7 @@ exports.getTitle = function (req, res) {
 
     // Find on $text index
     // Only primaryTitle && secondaryTitle are indexed
-    title.find({$text: {$search: req.query.name}}, function (err, products) {
+    title.find({$text: {$search: `"${req.query.name}"`}}).limit(50).exec(function (err, products) {
         if (err) return next(err);
         res.send(products)
     });

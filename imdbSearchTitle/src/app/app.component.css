@@ -1,3 +1,7 @@
 .search-button {
   padding-bottom: 1.25em;
 }
+
+.full-width {
+  min-width: 100%;
+}

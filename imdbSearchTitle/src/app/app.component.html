@@ -27,10 +27,14 @@
   </div>
 </div>
 
-<app-search-result
-  *ngIf="titles$ | async as titles"
-  [titles]="titles">
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div class="full-width">
+    <app-search-result
+      *ngIf="titles$ | async as titles"
+      [titles]="titles">
+    </app-search-result>
+  </div>
+</div>
 
-</app-search-result>
 
 <router-outlet></router-outlet>

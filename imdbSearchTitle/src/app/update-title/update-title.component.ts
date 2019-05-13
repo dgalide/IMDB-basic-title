@@ -6,6 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-update-title',
@@ -42,7 +43,7 @@ export class UpdateTitleComponent implements OnInit {
   }
 
   updateTitle(): void {
-    this.httpClient.put(`http://localhost:1234/title/${this.current._id}/update`, this.form.value)
+    this.httpClient.put(`${environment.baseUrl}title/${this.current._id}/update`, this.form.value)
       .subscribe(
         res => console.log('Title Updated', res),
         err => console.log(err),

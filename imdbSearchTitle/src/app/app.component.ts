@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { ITitle } from './models/title.interface';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -21,8 +22,9 @@ export class AppComponent implements OnInit {
   }
 
   search(value: string): void {
+    console.log(environment);
     if (value) {
-      this.titles$ = this.httpClient.get<Array<ITitle>>(`http://localhost:1234/title/search?name=${value}`);
+      this.titles$ = this.httpClient.get<Array<ITitle>>(`${environment.baseUrl}title/search?name=${value}`);
     }
   }
 }

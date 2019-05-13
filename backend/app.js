@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-let db_url = 'mongodb://localhost:27017/canal';
+const path = require('path');
+const db_url = 'mongodb://localhost:27017/canal';
+const port = 8080;
 
 const title = require('./routes/title.route');
 
@@ -14,11 +16,16 @@ app.use(function(req, res, next) {
     next();
 });
 
-let port = 1234;
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/title', title);
+
+app.use(express.static(path.resolve('../imdbSearchTitle/dist/imdbSearchTitle/')));
+
+app.get('/', function(req, res) {
+    // res.sendFile(path.join(__dirname + '/dist/imdbSearchTite/index.html'));
+    res.sendFile(path.resolve('../imdbSearchTitle/dist/imdbSearchTitle/index.html'));
+});
 
 app.listen(port, () => {
     console.log('Server is up and running on port numner ' + port);

@@ -1,0 +1,30 @@
+<h3> Update one title</h3>
+<button>
+  <fa-icon
+    (click)="close(true)"
+    [icon]="closeIcon">
+  </fa-icon>
+</button>
+
+<form [formGroup]="form">
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="primaryTitle"
+        placeholder="Primary Title"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="originalTitle"
+        placeholder="Original Title"/>
+    </mat-form-field>
+
+    <button
+      mat-button
+      [disabled]="!form.dirty"
+      (click)="updateTitle()">
+      Update Title
+    </button>
+  </form>

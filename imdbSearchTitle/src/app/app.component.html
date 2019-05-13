@@ -8,8 +8,18 @@
 </div>
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-  <input type="text" [(ngModel)]="searchTerms"/>
-  <button mat-button (click)="search()">
+
+  <mat-form-field>
+    <input
+      [formControl]="searchTerms"
+      matInput
+      placeholder="Title"/>
+  </mat-form-field>
+
+  <button
+    mat-button
+    type="submit"
+    (click)="search(searchTerms.value)">
     Search
   </button>
 </div>

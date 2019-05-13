@@ -20,7 +20,9 @@ exports.getAll = function (req, res) {
 
 exports.putTitle = function (req, res) {
     title.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
-        if (err) return next(err);
-        res.send('Product udpated.');
+        if (err) {
+            res.err(err);
+        };
+        res.send(product);
     });
 };

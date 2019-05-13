@@ -1,4 +1,5 @@
 export interface ITitle {
+  _id: string;
   originalTitle: string;
   primaryTitle: string;
   runtimeMinutes: number;

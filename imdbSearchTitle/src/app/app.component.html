@@ -30,6 +30,7 @@
 <div fxLayout="column" fxLayoutAlign="center center">
   <div class="full-width">
     <app-search-result
+      (refresh)="search(searchTerms.value)"
       *ngIf="titles$ | async as titles"
       [titles]="titles">
     </app-search-result>

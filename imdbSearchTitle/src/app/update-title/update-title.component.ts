@@ -54,10 +54,8 @@ export class UpdateTitleComponent implements OnInit {
   }
 
   successHandler(): void {
-
-    console.log('SUCCESS');
     this.snackBar.openFromComponent(SnackSuccessComponent, {
-      duration: 1000,
+      duration: 2000,
     });
     this.close(true);
   }

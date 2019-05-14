@@ -3,4 +3,4 @@ Simple UI to search &amp;&amp; modify movie title from IMDB dataset (https://dat
 
 [Live Version](http://magrathea.ga)
 
-Edit 14/05/19 : Filtre sur startYear manquant, il arrive soon !
+Le dataset untar > 500mb, de ce fait, le backend etait necessaire pour optimiser la recherche

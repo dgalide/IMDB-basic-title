@@ -9,28 +9,60 @@
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
 
-  <mat-form-field>
-    <input
-      [formControl]="searchTerms"
-      matInput
-      placeholder="Title"/>
-  </mat-form-field>
+  <div>
+    <mat-form-field>
+      <input
+        [formControl]="searchName"
+        matInput
+        placeholder="Title"/>
+    </mat-form-field>
+  </div>
 
   <div class="search-button">
     <button
       mat-raised-button
       color="accent"
       type="submit"
-      (click)="search(searchTerms.value)">
+      (click)="search(searchName.value)">
       Search
     </button>
+  </div>
+
+  <div class="search-button">
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      (click)="toggle()">
+      Filter
+    </button>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.5%">
+  <div>
+    <mat-form-field *ngIf="toggleFilter">
+      <input
+        type="number"
+        [formControl]="searchYear"
+        matInput
+        placeholder="Year"/>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-button-toggle-group *ngIf="toggleFilter" [formControl]="searchYearOperator" name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle [value]="yearOperator.Before">Before</mat-button-toggle>
+      <mat-button-toggle [value]="yearOperator.After">After</mat-button-toggle>
+      <mat-button-toggle [value]="yearOperator.Equal">Equal</mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
 </div>
 
 <div fxLayout="column" fxLayoutAlign="center center">
   <div class="full-width">
     <app-search-result
-      (refresh)="search(searchTerms.value)"
+      (refresh)="search(searchName.value)"
       *ngIf="titles$ | async as titles"
       [titles]="titles">
     </app-search-result>

@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
         .getByName(value)
         .pipe(
           map(titles => {
-            if (this.searchYear.valid && this.searchYearOperator.valid) {
+            if (this.searchYear.value && this.searchYearOperator.value) {
               return this.filterByYear(titles, this.searchYear.value, this.searchYearOperator.value);
             }
             return titles;

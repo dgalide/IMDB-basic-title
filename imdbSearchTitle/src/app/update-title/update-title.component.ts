@@ -42,6 +42,8 @@ export class UpdateTitleComponent implements OnInit {
     return this.fb.group({
       primaryTitle: [title.primaryTitle],
       originalTitle: [title.originalTitle],
+      startYear: [title.startYear],
+      genres: [title.genres],
     });
   }
 

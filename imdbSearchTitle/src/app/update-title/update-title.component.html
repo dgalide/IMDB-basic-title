@@ -1,12 +1,18 @@
-<h3> Update one title</h3>
-<button>
-  <fa-icon
-    (click)="close(true)"
-    [icon]="closeIcon">
-  </fa-icon>
-</button>
+<div class="update-popup">
+  <div
+    class="header-popup"
+    fxLayout="row"
+    fxLayoutAlign="center center">
+    <h3>Update one title</h3>
 
-<form [formGroup]="form">
+    <fa-icon
+      class="close-button"
+      (click)="close(true)"
+      [icon]="closeIcon">
+    </fa-icon>
+  </div>
+
+  <form [formGroup]="form" fxLayout="column">
     <mat-form-field>
       <input
         matInput
@@ -22,9 +28,11 @@
     </mat-form-field>
 
     <button
-      mat-button
+      mat-raised-button
+      color="accent"
       [disabled]="!form.dirty"
       (click)="updateTitle()">
       Update Title
     </button>
   </form>
+</div>

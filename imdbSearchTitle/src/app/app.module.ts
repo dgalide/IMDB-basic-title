@@ -1,9 +1,11 @@
+import { TitleService } from './providers/title.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { IsAdultPipe } from './is-adult.pipe';
+import { SnackSuccessComponent } from './snack-success/snack-success.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { IsAdultPipe } from './is-adult.pipe';
     SearchResultComponent,
     UpdateTitleComponent,
     IsAdultPipe,
+    SnackSuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,11 +43,15 @@ import { IsAdultPipe } from './is-adult.pipe';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatSnackBarModule,
   ],
   entryComponents: [
     UpdateTitleComponent,
+    SnackSuccessComponent,
   ],
-  providers: [],
+  providers: [
+    TitleService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

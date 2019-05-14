@@ -9,3 +9,8 @@
 .full-width {
   min-width: 100%;
 }
+
+.header {
+  display: inline-block;
+  vertical-align: middle;
+}
